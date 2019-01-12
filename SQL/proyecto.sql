@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 11-01-2019 a las 22:44:12
--- Versión del servidor: 10.1.37-MariaDB
--- Versión de PHP: 7.3.0
+-- Host: localhost:8889
+-- Generation Time: Jan 12, 2019 at 07:58 AM
+-- Server version: 5.7.23
+-- PHP Version: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `proyecto`
+-- Database: `proyecto`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `clients`
+-- Table structure for table `clients`
 --
 
 CREATE TABLE `clients` (
@@ -42,7 +40,7 @@ CREATE TABLE `clients` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `clients`
+-- Dumping data for table `clients`
 --
 
 INSERT INTO `clients` (`id_client`, `nom_client`, `nom_responsable`, `adresse`, `CP`, `tel_responsable`, `tel_mobile`, `email`, `date_derniere_visite`, `commentaire`) VALUES
@@ -56,26 +54,28 @@ INSERT INTO `clients` (`id_client`, `nom_client`, `nom_responsable`, `adresse`, 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `intervenants`
+-- Table structure for table `intervenants`
 --
 
 CREATE TABLE `intervenants` (
   `id_interv` int(11) NOT NULL,
-  `nom_interv` varchar(100) NOT NULL
+  `nom_interv` varchar(100) NOT NULL,
+  `correo` varchar(50) DEFAULT NULL,
+  `pass` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `intervenants`
+-- Dumping data for table `intervenants`
 --
 
-INSERT INTO `intervenants` (`id_interv`, `nom_interv`) VALUES
-(1, 'Christian lehingue'),
-(2, 'Jorge Paredes');
+INSERT INTO `intervenants` (`id_interv`, `nom_interv`, `correo`, `pass`) VALUES
+(1, 'Christian lehingue', 'lehingue.christian@lfm.edu.mx', '123'),
+(2, 'Jorge Paredes', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `machine`
+-- Table structure for table `machine`
 --
 
 CREATE TABLE `machine` (
@@ -97,7 +97,7 @@ CREATE TABLE `machine` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `machine`
+-- Dumping data for table `machine`
 --
 
 INSERT INTO `machine` (`id_machine`, `id_client`, `nom_machine`, `designation`, `type`, `reference`, `marque`, `fournisseur`, `commentaire`, `compteur`, `nb_arrets`, `temps_arrets`, `montant_pieces`, `tps_mo`, `nb_inter`) VALUES
@@ -269,7 +269,7 @@ INSERT INTO `machine` (`id_machine`, `id_client`, `nom_machine`, `designation`, 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `maintenance`
+-- Table structure for table `maintenance`
 --
 
 CREATE TABLE `maintenance` (
@@ -284,7 +284,7 @@ CREATE TABLE `maintenance` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `maintenance`
+-- Dumping data for table `maintenance`
 --
 
 INSERT INTO `maintenance` (`id_maint`, `id_machine`, `id_oper`, `id_interv`, `date`, `echeance`, `compteur`, `commentaire`) VALUES
@@ -412,7 +412,7 @@ INSERT INTO `maintenance` (`id_maint`, `id_machine`, `id_oper`, `id_interv`, `da
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `operation`
+-- Table structure for table `operation`
 --
 
 CREATE TABLE `operation` (
@@ -423,7 +423,7 @@ CREATE TABLE `operation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `operation`
+-- Dumping data for table `operation`
 --
 
 INSERT INTO `operation` (`id_oper`, `intitule`, `operation`, `periode`) VALUES
@@ -432,7 +432,7 @@ INSERT INTO `operation` (`id_oper`, `intitule`, `operation`, `periode`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `panne`
+-- Table structure for table `panne`
 --
 
 CREATE TABLE `panne` (
@@ -453,7 +453,7 @@ CREATE TABLE `panne` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `panne`
+-- Dumping data for table `panne`
 --
 
 INSERT INTO `panne` (`id_panne`, `id_machine`, `id_interv`, `date`, `organe`, `operation`, `nature_panne`, `cause_panne`, `garantie`, `temps_darret`, `PR`, `tps_interv`, `compteur`, `commentaire`) VALUES
@@ -810,30 +810,30 @@ INSERT INTO `panne` (`id_panne`, `id_machine`, `id_interv`, `date`, `organe`, `o
 (350, 90, 1, '2018-10-03', NULL, 'cambio de 1 pila de radio', '1 pila de transceiver FS', 'equipo de 2013', 0, 0, '1', 0, 1, NULL);
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `clients`
+-- Indexes for table `clients`
 --
 ALTER TABLE `clients`
   ADD PRIMARY KEY (`id_client`);
 
 --
--- Indices de la tabla `intervenants`
+-- Indexes for table `intervenants`
 --
 ALTER TABLE `intervenants`
   ADD PRIMARY KEY (`id_interv`);
 
 --
--- Indices de la tabla `machine`
+-- Indexes for table `machine`
 --
 ALTER TABLE `machine`
   ADD PRIMARY KEY (`id_machine`),
   ADD KEY `id_client` (`id_client`);
 
 --
--- Indices de la tabla `maintenance`
+-- Indexes for table `maintenance`
 --
 ALTER TABLE `maintenance`
   ADD PRIMARY KEY (`id_maint`),
@@ -842,13 +842,13 @@ ALTER TABLE `maintenance`
   ADD KEY `id_interv` (`id_interv`);
 
 --
--- Indices de la tabla `operation`
+-- Indexes for table `operation`
 --
 ALTER TABLE `operation`
   ADD PRIMARY KEY (`id_oper`);
 
 --
--- Indices de la tabla `panne`
+-- Indexes for table `panne`
 --
 ALTER TABLE `panne`
   ADD PRIMARY KEY (`id_panne`),
@@ -856,57 +856,57 @@ ALTER TABLE `panne`
   ADD KEY `id_machine` (`id_machine`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `clients`
+-- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
   MODIFY `id_client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de la tabla `intervenants`
+-- AUTO_INCREMENT for table `intervenants`
 --
 ALTER TABLE `intervenants`
   MODIFY `id_interv` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `machine`
+-- AUTO_INCREMENT for table `machine`
 --
 ALTER TABLE `machine`
   MODIFY `id_machine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=175;
 
 --
--- AUTO_INCREMENT de la tabla `maintenance`
+-- AUTO_INCREMENT for table `maintenance`
 --
 ALTER TABLE `maintenance`
   MODIFY `id_maint` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 
 --
--- AUTO_INCREMENT de la tabla `operation`
+-- AUTO_INCREMENT for table `operation`
 --
 ALTER TABLE `operation`
   MODIFY `id_oper` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `panne`
+-- AUTO_INCREMENT for table `panne`
 --
 ALTER TABLE `panne`
   MODIFY `id_panne` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=351;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `machine`
+-- Constraints for table `machine`
 --
 ALTER TABLE `machine`
   ADD CONSTRAINT `machine_ibfk_1` FOREIGN KEY (`id_client`) REFERENCES `clients` (`id_client`);
 
 --
--- Filtros para la tabla `maintenance`
+-- Constraints for table `maintenance`
 --
 ALTER TABLE `maintenance`
   ADD CONSTRAINT `maintenance_ibfk_1` FOREIGN KEY (`id_machine`) REFERENCES `machine` (`id_machine`),
@@ -914,12 +914,11 @@ ALTER TABLE `maintenance`
   ADD CONSTRAINT `maintenance_ibfk_3` FOREIGN KEY (`id_interv`) REFERENCES `intervenants` (`id_interv`);
 
 --
--- Filtros para la tabla `panne`
+-- Constraints for table `panne`
 --
 ALTER TABLE `panne`
   ADD CONSTRAINT `panne_ibfk_1` FOREIGN KEY (`id_interv`) REFERENCES `intervenants` (`id_interv`),
   ADD CONSTRAINT `panne_ibfk_2` FOREIGN KEY (`id_machine`) REFERENCES `machine` (`id_machine`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

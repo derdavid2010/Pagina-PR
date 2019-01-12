@@ -12,12 +12,16 @@
 	}
 
 	$id = $_GET["id"];
+	$clients = "SELECT nom_client FROM clients WHERE id_client=".$id;
+
 	if($id)
 		$query = "SELECT id_machine, nom_machine FROM machine WHERE id_client=".$id;
 	else
 		$query = "SELECT id_machine, nom_machine FROM machine ORDER BY id_machine ASC";
 
 	$resultado = mysqli_query($enlace, $query);
+	$res_clients = mysqli_query($enlace, $clients);
+	$row = mysqli_fetch_assoc($res_clients);
 ?>
 <html>
 	<head>
@@ -29,14 +33,14 @@
 
 		<center>
 
-		<iframe align="right" height="600px" src="operations.php" name="operations"></iframe>
+		<iframe align="right" height="600px" src="demo.php" name="operations"></iframe>
 
 		<?php if(mysqli_num_rows($resultado)>0) { ?>
 
 			<table border="1" cellpadding="5" cellspace="5">
 
 				<tr>
-				    <th>Nombre</th>
+				    <th>Machines <?php echo $row["nom_client"]?></th>
 				</tr>
 				
 
@@ -50,7 +54,7 @@
 
 			</table>
 
-		<?php } else echo "Ce machine n'a pas des operations de maintenance";?>
+		<?php } else echo "Ce client n'a pas machines";?>
 
 
 		<?php

@@ -29,11 +29,12 @@ else{
       header('Location: tableau.php');
 
     } else {
-        echo "No hay resultados";
-        header('Location: index.php');
 ?>
 
-<script type="text/javascript">alert("Email et/ou Mot de passe incorrect");</script>
+<script type="text/javascript">
+  alert("Email et/ou Mot de passe incorrect");
+  location.href="index.php";
+</script>
 
 <?php
     }

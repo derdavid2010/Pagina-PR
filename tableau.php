@@ -7,8 +7,11 @@
 		echo "No has iniciado sesion";
 		header('Location: index.php');
 	}
+?>
 
-	/* Ritchie esta es la variable de la ID ---> */echo $_SESSION["id"];
+	<h3 style="color: #e4f1fe;margin: 10px;">Bienvenido: <?php echo $_SESSION["nombre"]; ?> &nbsp;&nbsp; (ID: <?php echo $_SESSION["id"]; ?>)</h3>
+
+<?php
 
 	require_once 'conexion.php';
 	$enlace = mysqli_connect($hostname, $username, $password, $database);

@@ -18,42 +18,38 @@
 <html>
 	<head>
 		<title>Proyecto</title>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="CSS/index_style.css">
 	</head>
 
 	<body>
-		Que tal david :v a ver si te puedes copiar el diseño de la pagina del Jaime, sobre todo en las tablas, para que cuando seleccionas algo se pinte de otro color indicando la seleccion, asi como el menu de tu sitio web, pero aplicado sobre estas tablas.
 
-		<br/>Este es el menu
+		<ul>
+			<li><a href="index.php" class="active"><i class="material-icons">list_alt</i>&nbsp;Tableau principal</a></li>
+			<li><a href=""><i class="material-icons">add</i>&nbsp;Ajouter une machine</a></li>
+			<li><a href=""><i class="material-icons">add</i>&nbsp;Ajouter une maintenance</a></li>
+			<li><a href=""><i class="material-icons">create</i>&nbsp;Enregistrer une panne</a></li>
+			<li><a href=""><i class="material-icons">person_add</i>&nbsp;Nouveau intervenant</a></li>
+			<li><a href=""><i class="material-icons">person_add</i>&nbsp;Nouveau client</a></li>
+			<li><a href=""><i class="material-icons">arrow_back</i>&nbsp;Sortir</a></li>
+		</ul>
 
-		<table border="1">
-			<tr>
-				<td><a href="index.php">Tableau principal</a></td>
-				<td>Ajouter une machine</td>
-				<td>Ajouter une maintenance</td>
-				<td>Enregistrer une panne</td>
-				<td>Nouveau intervenant</td>
-				<td>Nouveau client</td>
-			</tr>
-		</table>
-
-		<br/>
-
-		<table border="1" cellpadding="5" cellspace="5">
+		<table class="clients">
 
 			<tr>
-			    <th>LISTE DES CLIENTS</th>
+			    <th colspan="100%">LISTE DES CLIENTS</th>
 			</tr>
 			
 			<tr>
-	        	<td><a href="machines.php?id=<?php echo 0;?>" target="machines"><strong>TOUS</strong></td>
-	        </tr>
+	        	<td><a href="machines.php?id=<?php echo 0;?>" target="machines"><strong>TOUS</strong></a></td>
 
 			<?php while ($fila = mysqli_fetch_assoc($resultado)) { ?>
-	        <tr>
-	        	<td><a href="machines.php?id=<?php echo $fila["id_client"]; ?>" target="machines"><?php echo $fila["nom_client"] ?> </td>
-	    	</tr>
 
-		<?php } ?>
+	        	<td><a href="machines.php?id=<?php echo $fila["id_client"]; ?>" target="machines"><?php echo $fila["nom_client"] ?> </a></td>
+
+			<?php } ?>	    	
+
+			</tr>
 
 		</table> 
 

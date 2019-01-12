@@ -22,31 +22,36 @@
 <html>
 	<head>
 		<title>Machines</title>
+		<link rel="stylesheet" type="text/css" href="CSS/machines_style.css">
 	</head>
 
 	<body>
 
-		<iframe align="right" width="80%" height="550px" src="operations.php" name="operations"></iframe>
+		<center>
+
+		<iframe align="right" height="600px" src="operations.php" name="operations"></iframe>
 
 		<?php if(mysqli_num_rows($resultado)>0) { ?>
-		<table border="1" cellpadding="5" cellspace="5">
 
-		<tr>
-		    <th>Nombre </th>
-		</tr>
-		
+			<table border="1" cellpadding="5" cellspace="5">
 
-		<?php while ($fila = mysqli_fetch_assoc($resultado)) { ?>
-        <tr>
-        	<td><a href="operations.php?id=<?php echo $fila["id_machine"]; ?>" target="operations"><?php echo $fila["nom_machine"] ?> </td>
-    	</tr>
+				<tr>
+				    <th>Nombre</th>
+				</tr>
+				
 
-		
-		<?php } ?>
-		</table>
+				<?php while ($fila = mysqli_fetch_assoc($resultado)) { ?>
+
+		        <tr>
+		        	<td><a href="operations.php?id=<?php echo $fila["id_machine"]; ?>" target="operations"><?php echo $fila["nom_machine"] ?>   </a></td>
+		    	</tr>
+				
+				<?php } ?>
+
+			</table>
+
 		<?php } else echo "Ce machine n'a pas des operations de maintenance";?>
 
-		
 
 		<?php
 			/* liberar la serie de resultadoados */
@@ -56,6 +61,7 @@
 
 		?>
 
+		</center>
 
 	</body>
 </html>

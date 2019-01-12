@@ -1,0 +1,22 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+	padding: 10px;
+    color: #22313f;
+}
+
+/* Contenido */
+
+table{
+	border-collapse: collapse;
+	background: #fff;
+	border-radius: 5px;
+	color: #22313f;
+}
+
+table tr th,td{
+	text-align: center;
+	border: 1px solid #34495e;
+}

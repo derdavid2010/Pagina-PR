@@ -22,6 +22,7 @@
 <html>
 	<head>
 		<title>Operations</title>
+		<link rel="stylesheet" type="text/css" href="CSS/operations_style.css">
 	</head>
 
 	<body>

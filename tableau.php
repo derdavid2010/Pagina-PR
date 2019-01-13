@@ -66,11 +66,11 @@
 
 		</table> 
 
-		<iframe width="100%" height="550px" src="machines.php" name="machines"></iframe>
+		<iframe width="100%" height="80%" src="machines.php" name="machines"></iframe>
 		
 		<?php
-		/* liberar la serie de resultadoados */
-		mysqli_free_resultado($resultado);
+		/* liberar la serie de resultados */
+		mysqli_free_result($resultado);
 
 		mysqli_close($enlace);
 

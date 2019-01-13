@@ -52,16 +52,9 @@
 		$fournisseur = !empty($fournisseur) ? "'$fournisseur'" : "NULL";
 		$commentaire = !empty($commentaire) ? "'$commentaire'" : "NULL";
 
-		$compteur = !empty($compteur) ? "$compteur" : "NULL";
-		$nb_arrets = !empty($nb_arrets) ? "$nb_arrets" : "NULL";
-		$temps_arrets = !empty($temps_arrets) ? "$temps_arrets" : "NULL";
-		$montant_pieces = !empty($montant_pieces) ? "$montant_pieces" : "NULL";
-		$tps_mo = !empty($tps_mo) ? "$tps_mo" : "NULL";
-		$nb_inter = !empty($nb_inter) ? "$nb_inter" : "NULL";
-
 		$query = "INSERT INTO machine_p (id_client, nom_machine, designation, type, reference, marque, fournisseur, commentaire, compteur, nb_arrets, temps_arrets, montant_pieces, tps_mo, nb_inter) VALUES ($id_client, '$nom_machine', $designation, $type, $reference, $marque, $fournisseur, $commentaire, $compteur, $nb_arrets, $temps_arrets, $montant_pieces, $tps_mo, $nb_inter)"; 
 		
-		header('Location: index.php');
+		header('Location: tableau.php');
 
 		mysqli_query($enlace, $query);
 		mysqli_close($enlace);
@@ -132,27 +125,27 @@
 				</p>
 
 				<p>Compteur:
-					<input type="number" name="compteur">
+					<input type="number" name="compteur" value="0">
 				</p>
 
 				<p>Nombre d'arrêts:
-					<input type="number" name="nb_arrets">
+					<input type="number" name="nb_arrets" value="0">
 				</p>
 
 				<p>Temps d'arrêt:
-					<input type="number" name="temps_arrets">
+					<input type="number" name="temps_arrets" value="0">
 				</p>
 
 				<p>Montant pièces:
-					<input type="number" name="montant_pieces">
+					<input type="number" name="montant_pieces" value="0">
 				</p>
 
 				<p>Temps MO:
-					<input type="number" name="tps_mo">
+					<input type="number" name="tps_mo" value="0">
 				</p>
 
 				<p>Nombre d'interv:
-					<input type="number" name="nb_inter">
+					<input type="number" name="nb_inter" value="0">
 				</p>
 			  
 				<p>

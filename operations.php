@@ -102,9 +102,9 @@
 
 		<?php 
 
-			/* liberar la serie de resultadoados */
-			mysqli_free_resultado($resultado_panne);
-			mysqli_free_resultado($resultado_maint);
+			/* liberar la serie de resultados */
+			mysqli_free_result($resultado_panne);
+			mysqli_free_result($resultado_maint);
 
 			mysqli_close($enlace);
 

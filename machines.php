@@ -33,7 +33,7 @@
 
 		<center>
 
-		<iframe align="right" height="600px" src="demo.php" name="operations"></iframe>
+		<iframe align="right" height="90%" src="demo.php" name="operations"></iframe>
 
 		<?php if(mysqli_num_rows($resultado)>0) { ?>
 
@@ -58,8 +58,9 @@
 
 
 		<?php
-			/* liberar la serie de resultadoados */
-			mysqli_free_resultado($resultado);
+			/* liberar la serie de resultados */
+			mysqli_free_result($resultado);
+			mysqli_free_result($res_clients);
 
 			mysqli_close($enlace);
 

@@ -1,0 +1,127 @@
+
+/* General */
+*{
+	margin: 0px;
+	padding: 0px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+html,body{
+	line-height:1.5;
+    margin: 0; height: 100%;
+}
+
+html{
+	overflow-x:hidden;
+}
+
+body{
+	background: #22313f;
+}
+
+/* Menu */
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #34495e;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #e4f1fe;
+    text-align: center;
+    padding: 12px 12px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+}
+
+li a:hover:not(.active) {
+    background-color: #22313f;
+}
+
+.active {
+    background-color: #8dc6ff;
+    color: #22313f;
+}
+
+i {
+    height: 28px;
+    vertical-align: middle;
+}
+
+/* Contenido */
+
+form{
+    background: #e4f1fe;
+    padding: 30px;
+    padding-left: 35%;
+    padding-bottom: 40px;
+}
+form p{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: #22313f;
+}
+form p input{
+    font-size: 18px;
+    padding-left: 5px;
+    color: #22313f;
+}
+form p select{
+    font-size: 18px;
+    color: #22313f;
+}
+form p textarea{
+    font-size: 16px;
+    padding: 5px;
+    width: 450px;
+    height: 100px;
+    color: #22313f;
+}
+form p #boton{
+    width: 150px;
+    font-size: 20px;
+    padding: 10px;
+    margin-left: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

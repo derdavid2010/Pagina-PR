@@ -67,7 +67,7 @@
 	<head>
 		<title>Ajouter Machine</title>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="CSS/tableau_style.css">
+		<link rel="stylesheet" type="text/css" href="CSS/ajouter_machine_style.css">
 	</head>
 
 	<body>
@@ -84,7 +84,7 @@
 
 		<form id="ajouter_machine" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
-				<p>Client: 
+				<p>- Client: 
 					<select name="id_client">
 						<option>Sélectionnez...</option>
 						<option value="1">FEMEXFUT</option>
@@ -96,61 +96,62 @@
 					</select>*
 				</p>
 
-				<p>Nom de la machine:
+				<p>- Nom de la machine:
 					<input type="text" name="nom_machine">*
 				</p>
 
-				<p>Désignation:
+				<p>- Désignation:
 					<input type="text" name="designation">
 				</p>
 
-				<p>Type:
+				<p>- Type:
 					<input type="text" name="type">
 				</p>
 
-				<p>Référence:
+				<p>- Référence:
 					<input type="text" name="reference">
 				</p>
 
-				<p>Marque:
+				<p>- Marque:
 					<input type="text" name="marque">
 				</p>
 
-				<p>Fournisseur:
+				<p>- Fournisseur:
 					<input type="text" name="fournisseur">
 				</p>
 
-				<p>Commentaire:
+				<p>- Commentaire:
+					<br/>
 					<textarea name="commentaire" form="ajouter_machine" rows="7" cols="100"></textarea>
 				</p>
 
-				<p>Compteur:
+				<p>- Compteur:
 					<input type="number" name="compteur" value="0">
 				</p>
 
-				<p>Nombre d'arrêts:
+				<p>- Nombre d'arrêts:
 					<input type="number" name="nb_arrets" value="0">
 				</p>
 
-				<p>Temps d'arrêt:
+				<p>- Temps d'arrêt:
 					<input type="number" name="temps_arrets" value="0">
 				</p>
 
-				<p>Montant pièces:
+				<p>- Montant pièces:
 					<input type="number" name="montant_pieces" value="0">
 				</p>
 
-				<p>Temps MO:
+				<p>- Temps MO:
 					<input type="number" name="tps_mo" value="0">
 				</p>
 
-				<p>Nombre d'interv:
+				<p>- Nombre d'interv:
 					<input type="number" name="nb_inter" value="0">
 				</p>
-			  
+			  	<br/>
 				<p>
-					<input type="reset" value="Effacer">
-			  		<input type="submit" name="agregar" value="Ajouter machine">
+					<input type="reset" value="Effacer" id="boton">
+			  		<input type="submit" name="agregar" value="Ajouter machine" id="boton">
 			  	</p>
 		</form>
 

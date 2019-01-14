@@ -70,7 +70,7 @@
 	<head>
 		<title>Ajouter Machine</title>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="CSS/tableau_style.css">
+		<link rel="stylesheet" type="text/css" href="CSS/ajouter_machine_style.css">
 	</head>
 
 	<body>
@@ -145,7 +145,7 @@
 				</p>
 
 				<p>Garantie:
-					<input type="checkbox" name="garantie" value="1"> VERDADERO
+					<input type="checkbox" name="garantie" value="1">
 				</p>
 
 				<p>Temps d'arrêt:
@@ -161,12 +161,13 @@
 				</p>
 
 				<p>Commentaire:
+					<br/>
 					<textarea name="commentaire" form="ajouter_panne" rows="7" cols="100"></textarea>
 				</p>
 			  
 				<p>
-					<input type="reset" value="Effacer">
-			  		<input type="submit" name="agregar" value="Ajouter machine">
+					<input type="reset" value="Effacer" id="boton">
+			  		<input type="submit" name="agregar" value="Ajouter machine" id="boton">
 			  	</p>
 		</form>
 

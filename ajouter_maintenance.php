@@ -9,7 +9,12 @@
 	}
 ?>
 
-	<h3 style="color: #e4f1fe;margin: 10px;">Bienvenu: <?php echo $_SESSION["nombre"]; ?> </h3>
+	<h3 style="position: fixed; color: #e4f1fe; padding-left: 10px;">Bienvenu: <?php echo $_SESSION["nombre"]; ?> </h3> 
+	<h3 align="right" style="position: static; color: #e4f1fe;margin: 10px;"> 
+		<?php 
+		date_default_timezone_set('America/Mexico_City');
+		setlocale(LC_TIME, "fr_FR");
+		echo strftime("%A %d %B %G - %R"); ?> </h3>
 
 <?php
 	
@@ -59,7 +64,7 @@
 
 <html>
 	<head>
-		<title>Ajouter Machine</title>
+		<title>Ajouter Maintenance</title>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="CSS/ajouter_machine_style.css">
 	</head>
@@ -73,6 +78,7 @@
 			<li><a href="ajouter_panne.php"><i class="material-icons">create</i>&nbsp;Enregistrer une panne</a></li>
 			<li><a href="ajouter_interv.php"><i class="material-icons">person_add</i>&nbsp;Nouveau intervenant</a></li>
 			<li><a href="ajouter_client.php"><i class="material-icons">person_add</i>&nbsp;Nouveau client</a></li>
+			<li><a href="maint_prev.php"><i class="material-icons">build</i>&nbsp;Maintenance préventive</a></li>
 			<li><a href="cerrarSesion.php"><i class="material-icons">arrow_back</i>&nbsp;Sortir</a></li>
 		</ul>
 
@@ -132,7 +138,7 @@
 					<input type="date" name="date">*
 				</p>
 
-				<p>Échéance:
+				<p>Période:
 					<input type="date" name="echeance">
 				</p>
 
@@ -147,7 +153,7 @@
 			  
 				<p>
 					<input type="reset" value="Effacer" id="boton">
-			  		<input type="submit" name="agregar" value="Ajouter machine" id="boton">
+			  		<input type="submit" name="agregar" value="Ajouter maintenance" id="boton">
 			  	</p>
 		</form>
 

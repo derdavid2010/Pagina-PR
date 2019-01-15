@@ -9,7 +9,12 @@
 	}
 ?>
 
-	<h3 style="color: #e4f1fe;margin: 10px;">Bienvenu: <?php echo $_SESSION["nombre"]; ?> </h3>
+	<h3 style="position: fixed; color: #e4f1fe; padding-left: 10px;">Bienvenu: <?php echo $_SESSION["nombre"]; ?> </h3> 
+	<h3 align="right" style="position: static; color: #e4f1fe;margin: 10px;"> 
+		<?php 
+		date_default_timezone_set('America/Mexico_City');
+		setlocale(LC_TIME, "fr_FR");
+		echo strftime("%A %d %B %G - %R"); ?> </h3>
 
 <?php
 
@@ -23,6 +28,8 @@
 	    echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
 	    exit;
 	}
+
+	$fecha = "SELECT date, echeance FROM maintenance_p";
 
 	$query = "SELECT id_client, nom_client FROM clients ORDER BY id_client ASC";
 	$resultado = mysqli_query($enlace, $query);
@@ -44,6 +51,7 @@
 			<li><a href="ajouter_panne.php"><i class="material-icons">create</i>&nbsp;Enregistrer une panne</a></li>
 			<li><a href="ajouter_interv.php"><i class="material-icons">person_add</i>&nbsp;Nouveau intervenant</a></li>
 			<li><a href="ajouter_client.php"><i class="material-icons">person_add</i>&nbsp;Nouveau client</a></li>
+			<li><a href="maint_prev.php"><i class="material-icons">build</i>&nbsp;Maintenance préventive</a></li>
 			<li><a href="cerrarSesion.php"><i class="material-icons">arrow_back</i>&nbsp;Sortir</a></li>
 		</ul>
 

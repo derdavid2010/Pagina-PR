@@ -9,7 +9,12 @@
 	}
 ?>
 
-	<h3 style="color: #e4f1fe;margin: 10px;">Bienvenu: <?php echo $_SESSION["nombre"]; ?> </h3>
+	<h3 style="position: fixed; color: #e4f1fe; padding-left: 10px;">Bienvenu: <?php echo $_SESSION["nombre"]; ?> </h3> 
+	<h3 align="right" style="position: static; color: #e4f1fe;margin: 10px;"> 
+		<?php 
+		date_default_timezone_set('America/Mexico_City');
+		setlocale(LC_TIME, "fr_FR");
+		echo strftime("%A %d %B %G - %R"); ?> </h3>
 
 <?php
 	
@@ -56,7 +61,7 @@
 		$PR = !empty($PR) ? "'$PR'" : "NULL";
 		$commentaire = !empty($commentaire) ? "'$commentaire'" : "NULL";
 
-		$query = "INSERT INTO panne_p (id_machine, id_interv, date, organe, operation, nature_panne, cause_panne, garantie, temps_darret, PR, tps_interv, compteur, commentaire) VALUES ($id_machine, $id_interv, '$date', $organe, $operation, $nature_panne, $cause_panne, $garantie, $temps_darret, $PR, $tps_interv,s $compteur, $commentaire)";
+		$query = "INSERT INTO panne_p (id_machine, id_interv, date, organe, operation, nature_panne, cause_panne, garantie, temps_darret, PR, tps_interv, compteur, commentaire) VALUES ($id_machine, $id_interv, '$date', $organe, $operation, $nature_panne, $cause_panne, $garantie, $temps_darret, $PR, $tps_interv, $compteur, $commentaire)";
 		
 		mysqli_query($enlace, $query);
 		header('Location: tableau.php');
@@ -68,7 +73,7 @@
 
 <html>
 	<head>
-		<title>Ajouter Machine</title>
+		<title>Enregistrer Panne</title>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="CSS/ajouter_machine_style.css">
 	</head>
@@ -82,10 +87,11 @@
 			<li><a href="#" class="active"><i class="material-icons">create</i>&nbsp;Enregistrer une panne</a></li>
 			<li><a href="ajouter_interv.php"><i class="material-icons">person_add</i>&nbsp;Nouveau intervenant</a></li>
 			<li><a href="ajouter_client.php"><i class="material-icons">person_add</i>&nbsp;Nouveau client</a></li>
+			<li><a href="maint_prev.php"><i class="material-icons">build</i>&nbsp;Maintenance préventive</a></li>
 			<li><a href="cerrarSesion.php"><i class="material-icons">arrow_back</i>&nbsp;Sortir</a></li>
 		</ul>
 
-		<form id="ajouter_maintenance" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+		<form id="ajouter_panne" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
 				<p>Machine: 
 					<select name="id_machine">
@@ -160,6 +166,10 @@
 					<input type="number" name="tps_interv" value="0">
 				</p>
 
+				 <p>Compteur:
+					<input type="number" name="compteur" value="0">
+				</p>
+
 				<p>Commentaire:
 					<br/>
 					<textarea name="commentaire" form="ajouter_panne" rows="7" cols="100"></textarea>
@@ -167,7 +177,7 @@
 			  
 				<p>
 					<input type="reset" value="Effacer" id="boton">
-			  		<input type="submit" name="agregar" value="Ajouter machine" id="boton">
+			  		<input type="submit" name="agregar" value="Enregistrer panne" id="boton">
 			  	</p>
 		</form>
 

@@ -44,15 +44,13 @@
 		$id_oper = $_REQUEST[id_oper];
 		$id_interv = $_REQUEST[id_interv];
 		$date = $_REQUEST[date];
-		$echeance = $_REQUEST[echeance];
 		$compteur = $_REQUEST[compteur];
 		$commentaire = $_REQUEST[commentaire];
 
 		//VERIFICAR SI ESTAN VACIOS PARA HACERLOS NULL
-		$echeance = !empty($echeance) ? "'$echeance'" : "NULL";
 		$commentaire = !empty($commentaire) ? "'$commentaire'" : "NULL";
 
-		$query = "INSERT INTO maintenance_p (id_machine, id_oper, id_interv, date, echeance, compteur, commentaire) VALUES ($id_machine, $id_oper, $id_interv, '$date', $echeance, $compteur, $commentaire)";
+		$query = "INSERT INTO maintenance_p (id_machine, id_oper, id_interv, date, compteur, commentaire) VALUES ($id_machine, $id_oper, $id_interv, '$date', $compteur, $commentaire)";
 		
 		mysqli_query($enlace, $query);
 		header('Location: tableau.php');
@@ -73,11 +71,12 @@
 
 		<ul>
 			<li><a href="tableau.php"><i class="material-icons">list_alt</i>&nbsp;Tableau principal</a></li>
-			<li><a href="ajouter_machine.php"><i class="material-icons">add</i>&nbsp;Machine</a></li>
-			<li><a href="#" class="active"><i class="material-icons">add</i>&nbsp;Maintenance</a></li>
+			<li><a href="ajouter_machine.php"><i class="material-icons">add</i>&nbsp;Ajouter une machine</a></li>
+			<li><a href="#" class="active"><i class="material-icons">add</i>&nbsp;Ajouter une maintenance</a></li>
+			<li><a href="ajouter_oper.php"><i class="material-icons">add</i>&nbsp;Ajouter opération de maintenance</a></li>
 			<li><a href="ajouter_panne.php"><i class="material-icons">create</i>&nbsp;Enregistrer une panne</a></li>
-			<li><a href="ajouter_interv.php"><i class="material-icons">person_add</i>&nbsp;Intervenant</a></li>
-			<li><a href="ajouter_client.php"><i class="material-icons">person_add</i>&nbsp;Client</a></li>
+			<li><a href="ajouter_interv.php"><i class="material-icons">person_add</i>&nbsp;Nouveau intervenant</a></li>
+			<li><a href="ajouter_client.php"><i class="material-icons">person_add</i>&nbsp;Nouveau client</a></li>
 			<li><a href="maint_prev.php"><i class="material-icons">build</i>&nbsp;Maintenance préventive</a></li>
 			<li><a href="cerrarSesion.php"><i class="material-icons">arrow_back</i>&nbsp;Sortir</a></li>
 		</ul>
@@ -136,10 +135,6 @@
 
 				<p>Date:
 					<input type="date" name="date">*
-				</p>
-
-				<p>Période:
-					<input type="date" name="echeance">
 				</p>
 
 				<p>Compteur:

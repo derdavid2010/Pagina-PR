@@ -1,11 +1,3 @@
-<html>
-	<head>
-		<title>Ajouter Machine</title>
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="CSS/ajouter_machine_style.css">
-	</head>
-
-	<body>
 <?php
 
 	/*Comprobar Sesion*/
@@ -76,13 +68,23 @@
 	
 ?>
 
+<html>
+	<head>
+		<title>Ajouter Machine</title>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="CSS/ajouter_machine_style.css">
+	</head>
+
+	<body>
+
 		<ul>
 			<li><a href="tableau.php"><i class="material-icons">list_alt</i>&nbsp;Tableau principal</a></li>
 			<li><a href="#" class="active"><i class="material-icons">add</i>&nbsp;Machine</a></li>
-			<li><a href="ajouter_maintenance.php"><i class="material-icons">add</i>&nbsp;Maintenance</a></li>
+			<li><a href="ajouter_maintenance.php"><i class="material-icons">add</i>&nbsp;Ajouter une maintenance</a></li>
+			<li><a href="ajouter_oper.php"><i class="material-icons">add</i>&nbsp;Ajouter opération de maintenance</a></li>
 			<li><a href="ajouter_panne.php"><i class="material-icons">create</i>&nbsp;Enregistrer une panne</a></li>
-			<li><a href="ajouter_interv.php"><i class="material-icons">person_add</i>&nbsp;Intervenant</a></li>
-			<li><a href="ajouter_client.php"><i class="material-icons">person_add</i>&nbsp;Client</a></li>
+			<li><a href="ajouter_interv.php"><i class="material-icons">person_add</i>&nbsp;Nouveau intervenant</a></li>
+			<li><a href="ajouter_client.php"><i class="material-icons">person_add</i>&nbsp;Nouveau client</a></li>
 			<li><a href="maint_prev.php"><i class="material-icons">build</i>&nbsp;Maintenance préventive</a></li>
 			<li><a href="cerrarSesion.php"><i class="material-icons">arrow_back</i>&nbsp;Sortir</a></li>
 		</ul>

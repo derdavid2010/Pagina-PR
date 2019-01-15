@@ -1,22 +1,22 @@
 
 /* General */
 *{
-	margin: 0px;
-	padding: 0px;
+    margin: 0px;
+    padding: 0px;
     font-family: 'Montserrat', sans-serif;
 }
 
 html,body{
-	line-height:1.5;
-    margin: 0; height: 100%; overflow: hidden;
+    line-height:1.5;
+    margin: 0; height: 100%;
 }
 
 html{
-	overflow-x:hidden;
+    overflow-x:hidden;
 }
 
 body{
-	background: #22313f;
+    background: #22313f;
 }
 
 /* Menu */

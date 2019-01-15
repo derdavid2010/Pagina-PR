@@ -21,8 +21,6 @@
 
     if(mysqli_num_rows($resultado_maint)>0) { 
 
-        echo "ok";
-
         $delimiter = ",";
         $filename = $nombre."_maintenance_" . date('Y-m-d') . ".csv";
         

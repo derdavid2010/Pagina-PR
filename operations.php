@@ -17,6 +17,8 @@
 
 	$resultado_panne = mysqli_query($enlace, $query_panne);
 	$resultado_maint = mysqli_query($enlace, $query_maint);
+
+	$nombre = $_GET["nombre"];
 ?>
 
 <html>
@@ -26,9 +28,12 @@
 	</head>
 
 	<body>
+		<center><h2><?php echo $nombre; ?></h2></center>
 		<!-- OPERACIONES DE MANTENIMIENTO -->
 		<h3>Liste des operations de maintenance</h3>
 		<?php if(mysqli_num_rows($resultado_maint)>0) { ?>
+		<a href="exportar_maintenance.php?id=<?php echo $id; ?>&nombre=<?php echo $nombre; ?>" target="_blank">Exporter le fichier CSV</a>
+		<br/>
 		<table border="1" cellpadding="5" cellspace="5">
 
 		<tr>
@@ -60,6 +65,8 @@
 		<!-- OPERACIONES DE PANNE -->
 		<h3>Liste des pannes</h3>
 		<?php if(mysqli_num_rows($resultado_panne)>0) { ?>
+		<a href="exportar_panne.php?id=<?php echo $id; ?>&nombre=<?php echo $nombre; ?>" target="_blank">Exporter le fichier CSV</a>
+		<br/>
 		<table border="1" cellpadding="5" cellspace="5">
 
 		<tr>

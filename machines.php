@@ -47,7 +47,8 @@
 				<?php while ($fila = mysqli_fetch_assoc($resultado)) { ?>
 
 		        <tr>
-		        	<td><a href="operations.php?id=<?php echo $fila["id_machine"]; ?>" target="operations"><?php echo $fila["nom_machine"] ?>   </a></td>
+		        	<td><a href="operations.php?id=<?php echo $fila["id_machine"]; ?>&nombre=<?php echo $fila["nom_machine"]; ?>" 
+		        		target="operations"><?php echo $fila["nom_machine"] ?>   </a></td>
 		    	</tr>
 				
 				<?php } ?>

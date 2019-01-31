@@ -79,7 +79,7 @@
 
 		<ul>
 			<li><a href="tableau.php"><i class="material-icons">list_alt</i>&nbsp;Tableau principal</a></li>
-			<li><a href="#" class="active"><i class="material-icons">add</i>&nbsp;Machine</a></li>
+			<li><a href="#" class="active"><i class="material-icons">add</i>&nbsp;Ajouter une machine</a></li>
 			<li><a href="ajouter_maintenance.php"><i class="material-icons">add</i>&nbsp;Ajouter une maintenance</a></li>
 			<li><a href="ajouter_oper.php"><i class="material-icons">add</i>&nbsp;Ajouter opération de maintenance</a></li>
 			<li><a href="ajouter_panne.php"><i class="material-icons">create</i>&nbsp;Enregistrer une panne</a></li>

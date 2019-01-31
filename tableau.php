@@ -29,10 +29,37 @@
 	    exit;
 	}
 
-	$fecha = "SELECT date, echeance FROM maintenance_p";
-
 	$query = "SELECT id_client, nom_client FROM clients ORDER BY id_client ASC";
+	$fecha = "SELECT id_machine, prox_date FROM maintenance_prev ORDER BY id_prev ASC";
+
+	$acum = 0;
 	$resultado = mysqli_query($enlace, $query);
+	$resultado2 = mysqli_query($enlace, $fecha);
+
+	while($row_fecha = mysqli_fetch_assoc($resultado2)){
+		$fechaEntero = strtotime($row_fecha["prox_date"]);
+		$prox_mes[$cont] = date("n", $fechaEntero);
+		$prox_dia[$cont] = date("j", $fechaEntero);
+
+		if (date("n")==$prox_mes[$cont] && date("j")==$prox_dia[$cont]) {
+			$query_m = "SELECT nom_machine FROM machine WHERE id_machine=".$row_fecha["id_machine"];
+			$resultado3 = mysqli_query($enlace, $query_m);
+
+			while ($row_m = mysqli_fetch_assoc($resultado3)) {
+				$machine[$acum] = $row_m["nom_machine"];
+				$acum++;
+			}
+		}
+		$cont++; 
+	}
+	
+	if ($acum>0) { ?>
+		<script type="text/javascript">
+			alert('<?php for ($x=0; $x<$acum; $x++){?>LA MACHINE <?php echo $machine[$x] ?> A BESOIN DE MAINTENANCE \n <?php }?>');
+  			//location.href="index.php";
+		</script>
+	<?php }	
+
 ?>
 
 <html>

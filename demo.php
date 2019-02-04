@@ -14,6 +14,7 @@ $nom = $_GET["nom"];
 <body>
 	<h3 style="font-family: 'Montserrat', sans-serif;"><i class="material-icons">arrow_back</i>&nbsp;Sélectionnez une machine s'il vous plaît</h3>
 	<br/>
+	<?php if($nom != null){ ?>
 	<a href="exportar_maintenance_todos.php?id=<?php echo $id; ?>&nom=<?php echo $nom; ?>">
 		Exporter liste des operations de maintenance de <?php echo $nom; ?>
 	</a>
@@ -21,5 +22,6 @@ $nom = $_GET["nom"];
 	<a href="exportar_panne_todos.php?id=<?php echo $id; ?>&nom=<?php echo $nom; ?>">
 		Exporter liste des pannes de <?php echo $nom; ?>
 	</a>
+	<?php } ?>
 </body>
 </html>

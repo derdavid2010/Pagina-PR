@@ -49,7 +49,7 @@
 		$query = "INSERT INTO maintenance_prev (id_machine, id_interv, date, prox_date) VALUES ($id_machine, $id_interv, CURDATE(), '$fecha')";
 		
 		mysqli_query($enlace, $query);
-		header('Location: tableau.php');
+		header('Location: maint_prev.php');
 
 	}
 	else{
@@ -168,7 +168,7 @@
 					    ?> 
 				
 
-					<table border="3px">
+					<table border="3px" style="border-collapse: collapse;">
 					<tr><th colspan="100"><?php echo $meses; ?> </th></tr>
 					<tr>
 					<?php
@@ -188,7 +188,7 @@
 							
 					    	}
 					    }?>
-					    	
+					    </tr>
 						</table><br/>
 				
 
@@ -210,7 +210,7 @@
 					    	
 					?> 
 				
-					<table border="3px">
+					<table border="3px" style="border-collapse: collapse;">
 					<tr><th colspan="100"><?php echo $meses; ?> </th></tr><?php
 					    
 					    for ($an=0; $an < count($prox_an); $an++) { 
@@ -227,7 +227,7 @@
 
 					    	}
 					    }?>
-					    	
+					    </tr>
 				
 						</table><br/>
 

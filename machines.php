@@ -33,7 +33,7 @@
 
 		<center>
 
-		<iframe align="right" height="90%" src="demo.php" name="operations"></iframe>
+		<iframe align="right" height="90%" src="demo.php?id=<?php echo $id ?>&nom=<?php echo $row["nom_client"] ?>" name="operations"></iframe>
 
 		<?php if(mysqli_num_rows($resultado)>0) { ?>
 

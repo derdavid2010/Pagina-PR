@@ -14,7 +14,7 @@
         exit;
     }
     
-    $query_maint = "SELECT * FROM maintenance JOIN machine WHERE id_client=".$id;
+    $query_maint = "SELECT machine.nom_machine, maintenance.date, maintenance.commentaire FROM maintenance inner join machine on maintenance.id_machine=machine.id_machine where machine.id_client=".$id;
 
     $resultado_maint = mysqli_query($enlace, $query_maint);
 
@@ -28,11 +28,7 @@
         
         //set column headers
         $fields = array('Machine',
-            'Operation',
-            'Intervenant',
             'Date',
-            'Echeance',
-            'Compteur',
             'Comentaire');
 
         fputcsv($f, $fields, $delimiter);
@@ -41,11 +37,7 @@
         while ($fila_maint = mysqli_fetch_assoc($resultado_maint)) { 
 
             $lineData = array($fila_maint["nom_machine"],
-            $fila_maint["id_oper"],
-            $fila_maint["id_interv"],
             $fila_maint["date"],
-            $fila_maint["echeance"],
-            $fila_maint["compteur"],
             $fila_maint["commentaire"]);
 
             fputcsv($f, $lineData, $delimiter);

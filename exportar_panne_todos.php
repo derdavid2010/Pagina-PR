@@ -14,7 +14,7 @@
         exit;
     }
     
-    $query_panne = "SELECT * FROM panne JOIN machine WHERE id_client=".$id;
+    $query_panne = "select machine.nom_machine, panne.date, panne.organe, panne.operation, panne.nature_panne, panne.cause_panne, panne.commentaire from panne inner join machine on panne.id_machine=machine.id_machine where machine.id_client=".$id;
 
     $resultado_panne = mysqli_query($enlace, $query_panne);
 
@@ -28,17 +28,11 @@
         
         //set column headers
         $fields = array('Machine',
-            'Intervenant',
             'Date',
             'Organe',
             'Operation',
             'Nature panne',
             'Cause panne',
-            'Garantie',
-            'Temps d`arret',
-            'PR',
-            'Temps interv',
-            'Compteur',
             'Commentaire');
 
         fputcsv($f, $fields, $delimiter);
@@ -47,17 +41,11 @@
         while ($fila_panne = mysqli_fetch_assoc($resultado_panne)) { 
 
             $lineData = array($fila_panne["nom_machine"],
-            $fila_panne["id_interv"],
             $fila_panne["date"],
             $fila_panne["organe"],
             $fila_panne["operation"],
             $fila_panne["nature_panne"],
             $fila_panne["cause_panne"],
-            $fila_panne["garantie"],
-            $fila_panne["temps_darret"],
-            $fila_panne["PR"],
-            $fila_panne["tps_interv"],
-            $fila_panne["compteur"],
             $fila_panne["commentaire"]);
 
             fputcsv($f, $lineData, $delimiter);
